@@ -8,6 +8,8 @@
     %script(type="text/javascript" src="/main.js")
     %link{:rel => "stylesheet", :href => "/main.css", :type => "text/css", :media => "all"}
   %body
-    %textarea(cols="80" rows="12" id="input")
+    .label In
+    %textarea#input(cols="80" rows="12")
     %button(id="rdoc_btn") rDoc it!
-    #results
+    .label Out
+    #results Output...

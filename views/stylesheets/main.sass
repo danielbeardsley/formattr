@@ -1,2 +1,28 @@
-textarea
+$border_color: #888
+$output_color: #555
+
+@mixin nice-border
+	$radius: 5px
+
+	border: solid 2px $border_color
+	border-radius: $radius
+	-moz-border-radius: $radius
+	-webkit-border-radius: $radius
+
+
+body
+	font-family: Arial
+
+#input
+	@include nice-border
 	font-size: 11px
+
+#results
+	@include nice-border
+	font-size: 13px
+	padding: 10px
+	color: $output_color
+
+.label
+	color: #595
+	font-size: 20px
