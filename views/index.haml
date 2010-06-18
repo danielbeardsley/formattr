@@ -8,8 +8,11 @@
     %script(type="text/javascript" src="/main.js")
     %link{:rel => "stylesheet", :href => "/main.css", :type => "text/css", :media => "all"}
   %body
-    .label In
-    %textarea#input(cols="80" rows="12")
-    %button(id="rdoc_btn") rDoc it!
-    .label Out
-    #results Output...
+    .group
+      .label In
+      %textarea#input(rows="12")
+    .group.buttons
+      %button(id="rdoc_btn") rDoc
+    .group
+      .label Out
+      #results Output...

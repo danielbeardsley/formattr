@@ -8,21 +8,36 @@ $output_color: #555
 	border-radius: $radius
 	-moz-border-radius: $radius
 	-webkit-border-radius: $radius
-
+	padding: 10px
 
 body
 	font-family: Arial
 
 #input
 	@include nice-border
+	border-color: #7a7
 	font-size: 11px
+	width: 600px
+
 
 #results
 	@include nice-border
+	border-color: #a77
 	font-size: 13px
-	padding: 10px
 	color: $output_color
+	min-width: 600px
+	float: left
 
 .label
 	color: #595
-	font-size: 20px
+	font-size: 30px
+	font-weight: bold
+
+.group
+	clear: both
+	padding: 0px 5px 15px 0px
+
+.buttons
+	button
+		font-size: 20px
+		padding: 3px 8px
