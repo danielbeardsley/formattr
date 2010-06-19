@@ -1,0 +1,15 @@
+= Formattr
+Allows you to quickly test the output of various markup languages
+rDoc, Textile, Markdown, ...
+
+== Technologies
+- Application Platform: Sinatra[http://github.com/sinatra/sinatra]
+- Templates: Haml[http://github.com/nex3/haml]
+- CSS: Sass[http://github.com/nex3/haml] ... <i>included with Haml</i>
+
+== Help
+Any help is appreciated, fork, commit, request a pull.
+
+== Links
+- Code: {GitHub}[http://github.com/danielbeardsley/formattr]
+
