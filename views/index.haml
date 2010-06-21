@@ -11,11 +11,19 @@
   %body
     .title Formattr
     .group
-      .label In
-      %textarea#input(rows="12")
-    .group.buttons
-      %button(id="rdoc_btn") rDoc
+      .buttons#format_buttons
+        .button.left_most#rdoc_btn rDoc
+        .button.right_most#sass_btn Sass
+        .clear
     .group
-      .label Out
-      #results Output...
+      %textarea#input(rows="12")
+    .group#middle_buttons
+      #go_btn GO
+      .buttons#output_view_buttons
+        .button#visual_output_btn Visual
+        .button#code_output_btn&= '<code>'
+    .group
+      #results
+        #visual_output Output...
+        #code_output Output...
     <a href="http://github.com/danielbeardsley/formattr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a
