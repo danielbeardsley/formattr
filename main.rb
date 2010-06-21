@@ -15,6 +15,10 @@ post '/rdoc' do
 	h.convert(params[:input])
 end
 
+post '/sass' do
+	sass(params[:input])
+end
+
 get '/*.css' do
 	content_type 'text/css', :charset => 'utf-8'
 	sass("/stylesheets/#{params[:splat].join}".to_sym)
