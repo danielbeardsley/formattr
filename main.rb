@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'rdoc/rdoc'
+require 'rdoc/markup'
 require 'rdoc/markup/to_html'
 require 'haml'
 require 'sass'
