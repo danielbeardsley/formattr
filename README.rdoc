@@ -12,4 +12,4 @@ Any help is appreciated, fork, commit, request a pull.
 
 == Links
 - Code: {GitHub}[http://github.com/danielbeardsley/formattr]
-
+- App: {Heroku}[http://formattr.heroku.com/]
