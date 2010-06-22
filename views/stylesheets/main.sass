@@ -1,53 +1,108 @@
-$border_color: #888
 $output_color: #555
+$button_color: #aad
+$light_button: lighten($button_color, 10%)
+$dark_button: darken($button_color, 20%)
+$button_border_radius: 3px
+$background: #e0e7ff
+$border_color: darken($button_color, 30%)
+
 
 @mixin nice-border
 	$radius: 5px
 
-	border: solid 2px $border_color
+	border: solid 1px $border_color
 	border-radius: $radius
 	-moz-border-radius: $radius
 	-webkit-border-radius: $radius
 	padding: 10px
 
+@mixin button-border($color)
+	border:
+		color: $color
+		width: 1px
+		style: solid
+
+@mixin rounded-corners($topbottom, $leftright, $radius)
+	border-#{$topbottom}-#{$leftright}-radius: $radius
+	-moz-border-radius-#{$topbottom}#{$leftright}: $radius
+	-webkit-border-#{$topbottom}-#{$leftright}-radius: $radius
+
+@mixin bottom-shadow
+	background: url(/images/bottom_shadow.png) repeat-x bottom right
+
+@mixin top-shadow
+	background: url(/images/top_shadow.png) repeat-x top left
+
+
 body
 	font-family: Arial, sans-serif
 	margin: 3px 15px
-	background-color: #f7f7f7
+	background-color: $background
 
 .title
 	font-size: 40px
-	color: #874
+	color: #448
 	font-weight: bold
 	letter-spacing: 1px
 
 #input
 	@include nice-border
-	border-color: #7a7
+	@include top-shadow
+	background-color: white
 	font-size: 11px
-	width: 600px
+	width: 800px
 
 
 #results
 	@include nice-border
-	border-color: #a77
+	@include top-shadow
 	font-size: 13px
 	color: $output_color
-	min-width: 600px
-	float: left
+	width: 800px
 	background-color: white
-
-.label
-	color: #595
-	font-size: 30px
-	font-weight: bold
-	letter-spacing: 1px
 
 .group
 	clear: both
-	padding: 0px 5px 15px 0px
+	padding: 0px 5px 5px 0px
 
 .buttons
-	button
-		font-size: 20px
-		padding: 3px 8px
+	float: left
+	color: white
+
+	.button
+		@include button-border($dark_button)
+		@include bottom-shadow
+		background-color: $button_color
+		border-right-width: 0px
+		font-size: 15px
+		padding: 3px 12px
+		float: left
+		cursor: pointer
+
+	.button:hover
+		background-color: darken($button_color, 10%)
+
+	.button.left_most
+		@include rounded_corners(top, left, $button_border_radius)
+		@include rounded_corners(bottom, left, $button_border_radius)
+
+	.button.right_most
+		@include rounded_corners(top, right, $button_border_radius)
+		@include rounded_corners(bottom, right, $button_border_radius)
+		border-right-width: 1px
+
+	.selected
+		@include top-shadow
+		background-color: darken($button_color, 15%)
+
+	.selected.button:hover
+		background-color: darken($button_color, 15%)
+
+	.button#visual_output_btn
+		text-decoration: italic
+
+	.button#code_output_btn
+		font-family: monospace
+
+.clear
+	clear: both

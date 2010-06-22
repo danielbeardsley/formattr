@@ -15,13 +15,16 @@
         .button.left_most#rdoc_btn rDoc
         .button.right_most#sass_btn Sass
         .clear
+      .clear
     .group
       %textarea#input(rows="12")
     .group#middle_buttons
       #go_btn GO
       .buttons#output_view_buttons
-        .button#visual_output_btn Visual
-        .button#code_output_btn&= '<code>'
+        .button.left_most#visual_output_btn Visual
+        .button.right_most#code_output_btn&= '<code>'
+        .clear
+      .clear
     .group
       #results
         #visual_output Output...
