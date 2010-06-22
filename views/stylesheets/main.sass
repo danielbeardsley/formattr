@@ -68,7 +68,35 @@ body
 
 .group
 	clear: both
-	padding: 0px 5px 5px 0px
+	position: relative
+	margin: 0px 5px 5px 0px
+
+#go_btn
+	margin: 0px auto
+	padding-top: 2px
+	position: relative
+	width: 150px
+	height: 70px
+	font-size: 60px
+	line-height: 1em
+	font-family: Arial Black
+	text-align: center
+	cursor: pointer
+	color: $button_color
+	text-shadow: transparentize(black, 0.8) 0px 2px 4px
+
+#go_btn:hover
+	color: $dark_button
+	padding-top: 0px
+	height: 72px
+	text-shadow: transparentize(black, 0.7) 0px 4px 8px
+
+
+
+#output_view_buttons
+	position: absolute
+	right: 0px
+	bottom: 0px
 
 .buttons
 	float: left
