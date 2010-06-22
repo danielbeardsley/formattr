@@ -34,6 +34,10 @@ $border_color: darken($button_color, 30%)
 @mixin top-shadow
 	background: url(/images/top_shadow.png) repeat-x top left
 
+@mixin monospaced
+	font-family: Consolas, Lucida Console, monospace
+
+
 
 body
 	font-family: Arial, sans-serif
@@ -60,7 +64,7 @@ body
 #results .result_panel
 	@include nice-border
 	@include top-shadow
-	font-size: 13px
+	font-size: 0.9em
 	color: $output_color
 	background-color: white
 
@@ -70,6 +74,11 @@ body
 	left: 0px
 	right: 0px
 	min-height: 100px
+
+.result_panel#code_output
+	@include monospaced
+	font-size: 11px
+
 
 .group
 	clear: both
@@ -116,6 +125,8 @@ body
 		padding: 3px 12px
 		float: left
 		cursor: pointer
+		line-height: 1.2em
+		height: 1.2em
 
 	.button:hover
 		background-color: darken($button_color, 10%)
@@ -129,18 +140,16 @@ body
 		@include rounded_corners(bottom, right, $button_border_radius)
 		border-right-width: 1px
 
-	.selected
+	.button.selected
 		@include top-shadow
 		background-color: darken($button_color, 15%)
-
-	.selected.button:hover
+	.button.selected:hover
 		background-color: darken($button_color, 15%)
 
 	.button#visual_output_btn
 		text-decoration: italic
-
 	.button#code_output_btn
-		font-family: monospace
+		@include monospaced
 
 .clear
 	clear: both
