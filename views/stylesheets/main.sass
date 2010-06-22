@@ -57,14 +57,19 @@ body
 	font-size: 11px
 	width: 100%
 
-
-#results
+#results .result_panel
 	@include nice-border
 	@include top-shadow
-	padding: 10px
 	font-size: 13px
 	color: $output_color
 	background-color: white
+
+	padding: 10px
+	position: absolute
+	top: 0px
+	left: 0px
+	right: 0px
+	min-height: 100px
 
 .group
 	clear: both
