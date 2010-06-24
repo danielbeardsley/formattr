@@ -17,6 +17,12 @@ class FormattingTest < Test::Unit::TestCase
     assert_equal "<p>\none_word\n</p>\n", last_response.body
   end
 
+  def test_haml
+    post '/haml', :input => "%a OK"
+    assert last_response.ok?
+    assert_equal "<a>OK</a>\n", last_response.body
+  end
+
   def test_sass_on_single_word
     post '/sass', :input => <<-SASS
 .class

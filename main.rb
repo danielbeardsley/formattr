@@ -27,6 +27,14 @@ post '/sass' do
 	end
 end
 
+post '/haml' do
+	begin
+		haml(params[:input], {:attr_wrapper => '"', :suppress_eval => true})
+	rescue Sass::SyntaxError => err
+		raise FormatError.new(err.message)
+	end
+end
+
 post '/markdown' do
 	BlueCloth::new(params[:input]).to_html
 end
