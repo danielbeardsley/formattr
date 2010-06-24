@@ -49,4 +49,10 @@ MARKDOWN
 </ul>
 HTML
 	end
+
+	def test_format_error
+		post '/sass', :input => "[some error]"
+		assert_equal 500, last_response.status
+		assert_not_nil last_response.body
+	end
 end

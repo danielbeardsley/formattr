@@ -15,14 +15,22 @@ $(document).ready(function(){
 // ==  Event Handlers  ==
 
 	$('#go_btn').click(function(){
-		$.post(
-			'/' + state.format,
-			{input:$('#input').val()},
-			function(data) {
-				$('#code_output').text(data)
-				$('#visual_output').html(data)
-			}
-		);
+		$.ajax({
+			type: 'POST',
+			url: '/' + state.format,
+			data: {input:$('#input').val()},
+			success: function(data) {
+				$('#code_output').text(data);
+				$('#visual_output').html(data);
+				$('#results').removeClass('error');
+			},
+			error: function(request){
+				$('#code_output').text(request.responseText);
+				$('#visual_output').html(request.responseText);
+				$('#results').addClass('error');
+			},
+			dataType: 'text'
+		});
 	});
 
 

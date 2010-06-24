@@ -7,6 +7,9 @@ require 'haml'
 require 'sass'
 require 'bluecloth'
 
+class FormatError < Exception
+end
+
 get '/' do
 	haml :index
 end
@@ -17,7 +20,11 @@ post '/rdoc' do
 end
 
 post '/sass' do
-	sass(params[:input])
+	begin
+		sass(params[:input])
+	rescue Sass::SyntaxError => err
+		raise FormatError.new(err.message)
+	end
 end
 
 post '/markdown' do
@@ -29,3 +36,8 @@ get '/*.css' do
 	sass("/stylesheets/#{params[:splat].join}".to_sym)
 end
 
+error FormatError do
+	env['sinatra.error'].message
+end
+
+set :show_exceptions, false
