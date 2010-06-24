@@ -3,6 +3,7 @@ $(document).ready(function(){
 
 	var formats = {
 		'rdoc': {button: 'rdoc_btn', response_format: 'html'},
+		'markdown': {button: 'markdown_btn', response_format: 'html'},
 		'sass': {button: 'sass_btn', response_format: 'css'}
 	}
 

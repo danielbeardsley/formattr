@@ -29,4 +29,24 @@ SASS
   border-color: blue; }
 CSS
   end
+
+	def test_markdown
+		post '/markdown', :input => <<-MARKDOWN
+Title
+======
+Body
+
+- List
+MARKDOWN
+		assert last_response.ok?
+		assert_equal(<<-HTML, last_response.body)
+<h1>Title</h1>
+
+<p>Body</p>
+
+<ul>
+<li>List</li>
+</ul>
+HTML
+	end
 end

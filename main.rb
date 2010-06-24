@@ -5,6 +5,7 @@ require 'rdoc/markup'
 require 'rdoc/markup/to_html'
 require 'haml'
 require 'sass'
+require 'bluecloth'
 
 get '/' do
 	haml :index
@@ -17,6 +18,10 @@ end
 
 post '/sass' do
 	sass(params[:input])
+end
+
+post '/markdown' do
+	BlueCloth::new(params[:input]).to_html
 end
 
 get '/*.css' do
